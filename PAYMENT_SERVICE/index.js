@@ -17,8 +17,8 @@ app.use(
   })
 );
 
-app.use("/api/payment-init", createOrder);
-app.use("/api/payment-verify", paymentVerify);
+app.use("/api/payment/payment-init", createOrder);
+app.use("/api/payment/payment-verify", paymentVerify);
 
 app.listen(3003, () => {
   console.log("Payment service running on port 3003");

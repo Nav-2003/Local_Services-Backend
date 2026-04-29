@@ -31,7 +31,7 @@ router.put("/bookingComplete", async (req, res) => {
       });
     }
 
-    fetch("http://localhost:3000/api/status/updateStatus", {
+    fetch("http://localhost:3000/api/auth/status/updateStatus", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -26,13 +26,13 @@ app.use(cors({
 
 
 
-app.use("/api/bookingReq",bookingReq);
-app.use("/api/bookingRes",bookingRes);
-app.use("/api/bookingData",bookingData);
-app.use("/api/bokingCancelUser",bookingCancel);
-app.use("/api/userData",userData);
-app.use("/api/booking",bookingComp);
-app.use("/api/bookingrej",bookingRej);
+app.use("/api/booking/bookingReq",bookingReq);
+app.use("/api/booking/bookingRes",bookingRes);
+app.use("/api/booking/bookingData",bookingData);
+app.use("/api/booking/bokingCancelUser",bookingCancel);
+app.use("/api/booking/userData",userData);
+app.use("/api/booking/Booking",bookingComp);
+app.use("/api/booking/bookingrej",bookingRej);
 
 
 

@@ -23,7 +23,7 @@ router.put("/booking_accept", async (req, res) => {
             console.log("Customer not online");
         }
 
-        const response = await fetch("http://localhost:3000/api/status/updateStatus", {
+        const response = await fetch("http://localhost:3000/api/auth/status/updateStatus", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

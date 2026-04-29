@@ -4,9 +4,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectRedis } from "./src/redis.js";
 import { initSocket } from "./src/socket.js";
-// import BookingReq from "./rabbitmq/rabbitMqBookingReq.js";
-// import { connectRabbitMQ } from "./rabbitmq/rabbitmqConfig.js";
-// import BookingRes from "./rabbitmq/rabbitmqRes.js";
 import { redisClient } from "./src/redis.js";
 import { getIO } from "./src/SocketInstance.js";
 import bookingReq from "./Booking_Jobs/booking_req_worker.js";
@@ -21,17 +18,15 @@ app.use(cors({
 }));
 app.use(express.json());
 const server = http.createServer(app);
-//await connectRabbitMQ();
+
 await connectRedis();
 initSocket(server);
-//await BookingReq();
-//await BookingRes();
 
-app.use("/api/bookingReq",bookingReq);
-app.use("/api/bookingRes",bookingRes);
+app.use("/api/socket/bookingReq",bookingReq);
+app.use("/api/socket/bookingRes",bookingRes);
 
 
-app.put("/api/cancelBooking", async (req, res) => {
+app.put("/api/socket/cancelBooking", async (req, res) => {
   try {
     const { workerEmail, customerEmail } = req.body;
 
@@ -64,6 +59,8 @@ app.put("/api/cancelBooking", async (req, res) => {
     return res.status(500).json({ error: "Server Error" });
   }
 });
+
+
 
 server.listen(3002, () => {
   console.log("SOCKET GATEWAY running on port 3002");

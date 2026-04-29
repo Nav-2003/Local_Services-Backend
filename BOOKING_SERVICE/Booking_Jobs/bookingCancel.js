@@ -28,7 +28,7 @@ router.put("/cancelBooking", async (req, res) => {
       },
     });
 
-    let response = await fetch("http://localhost:3002/api/cancelBooking", {
+    let response = await fetch("http://localhost:3002/api/socket/cancelBooking", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ router.put("/cancelBooking", async (req, res) => {
       console.log("Notification service failed");
     }
 
-    response = await fetch("http://localhost:3000/api/status/updateStatus", {
+    response = await fetch("http://localhost:3000/api/auth/status/updateStatus", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

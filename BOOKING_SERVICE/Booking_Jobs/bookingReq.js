@@ -4,7 +4,7 @@ const router=express.Router();
 
 const getDistance=async(custmorEmail,workerEmail)=>{
     const customerEmail=custmorEmail;
-    const result=await fetch("http://localhost:3000/api/serviceDist/getDistance",{
+    const result=await fetch("http://localhost:3000/api/auth/serviceDist/getDistance",{
         method:"PUT",
         headers:{
           "Content-Type":"application/json"
@@ -30,7 +30,7 @@ router.put('/bookingReq',async(req,res)=>{
       service:service
   });
 
-const result=await fetch("http://localhost:3002/api/bookingReq/request_to_worker",{
+const result=await fetch("http://localhost:3002/api/socket/bookingReq/request_to_worker",{
     method:"PUT",
     headers:{
       "Content-Type":"application/json"

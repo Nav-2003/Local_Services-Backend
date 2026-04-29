@@ -24,7 +24,7 @@ router.put("/getUserDetail", async (req, res) => {
       targetEmail = booking.workerEmail;
     }
     const resp = await fetch(
-      "http://localhost:3000/api/serviceData/getUserData",
+      "http://localhost:3000/api/auth/serviceData/getUserData",
       {
         method: "PUT",
         headers: {

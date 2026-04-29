@@ -17,7 +17,7 @@ router.put('/accept', async (req, res) => {
         );
         const customerEmail = data.customerEmail;
         const workerEmail=data.workerEmail;
-        await fetch("http://localhost:3002/api/bookingRes/booking_accept",{
+        await fetch("http://localhost:3002/api/socket/bookingRes/booking_accept",{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json"

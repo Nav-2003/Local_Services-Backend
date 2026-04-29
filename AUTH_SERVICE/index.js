@@ -19,22 +19,13 @@ dotenv.config();
 const app = express();
 //startDistanceWorker();
 
-async function startServer() {
-  try {
-    await mongoose.connect(
-      "mongodb+srv://yashi:naveen%402003@cluster0.vrbuumh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    );
+await mongoose.connect("mongodb+srv://yashi:naveen%402003@cluster0.vrbuumh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
+    console.log("DB is connected successfully")
+}).catch((err)=>{
+   console.log(err);
+})
 
-    console.log("DB connected successfully...");
 
-    app.listen(3000, () => {
-      console.log("Auth Service is Listening on port 3000");
-    });
-
-  } catch (error) {
-    console.error("DB connection failed:", error);
-  }
-}
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3001",
@@ -55,18 +46,19 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api/userAuth/signUp", customerAuth);
-app.use("/api/workerAuth/signUp", workerAuth);
-app.use("/api/userAuth", authSign);
-app.use("/api/userAuth/refresh",refresh)
-app.use("/api/userAuth/userLogout",logout);
-app.use("/api/serviceData",serviceData);
-app.use("/api/serviceDist",serviceData);
-app.use("/api/location",location);
-app.use("/api/serviceDist",serviceDist);
-app.use("/api/feedback",feedback);
-app.use("/api/status",status);
+app.use("/api/auth/userAuth/signUp", customerAuth);
+app.use("/api/auth/workerAuth/signUp", workerAuth);
+app.use("/api/auth/userAuth", authSign);
+app.use("/api/auth/userAuth/refresh",refresh)
+app.use("/api/auth/userAuth/userLogout",logout);
+app.use("/api/auth/serviceData",serviceData);
+app.use("/api/auth/serviceDist",serviceData);
+app.use("/api/auth/location",location);
+app.use("/api/auth/serviceDist",serviceDist);
+app.use("/api/auth/feedback",feedback);
+app.use("/api/auth/status",status);
 
+app.listen(3000,()=>{
+  console.log("server is running fine")
+});
 
-
-startServer();

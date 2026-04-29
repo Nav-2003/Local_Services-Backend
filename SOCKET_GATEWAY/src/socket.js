@@ -30,7 +30,7 @@ export const initSocket = (server) => {
       if (!email) return;
 
       try {
-        await fetch("http://localhost:3000/api/location/putLocation", {
+        await fetch("http://localhost:3000/api/auth/location/putLocation", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export const initSocket = (server) => {
 
       try {
         const response = await fetch(
-          `http://localhost:3000/api/location/getLocation/${email}`,
+          `http://localhost:3000/api/auth/location/getLocation/${email}`,
         );
         
         const data = await response.json();
@@ -68,7 +68,7 @@ export const initSocket = (server) => {
     });
 
     socket.on("liveDistance", async ({ workerEmail, customerEmail }) => {
-        const result = await fetch("http://localhost:3000/api/serviceDist/getDistance", {
+        const result = await fetch("http://localhost:3000/api/auth/serviceDist/getDistance", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -83,7 +83,7 @@ export const initSocket = (server) => {
    socket.on("paymentStatus", async ({ bookingId }) => {
   try {
 
-    const response = await fetch("http://localhost:3001/api/booking/bookingComplete", {
+    const response = await fetch("http://localhost:3001/api/booking/Booking/bookingComplete", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
