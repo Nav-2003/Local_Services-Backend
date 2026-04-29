@@ -17,7 +17,6 @@ import status from "./userData/updateStatus.js";
 dotenv.config();
 
 const app = express();
-//startDistanceWorker();
 
 await mongoose.connect("mongodb+srv://yashi:naveen%402003@cluster0.vrbuumh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
     console.log("DB is connected successfully")
@@ -57,6 +56,10 @@ app.use("/api/auth/location",location);
 app.use("/api/auth/serviceDist",serviceDist);
 app.use("/api/auth/feedback",feedback);
 app.use("/api/auth/status",status);
+
+app.get('/',(req,res)=>{
+   res.send("welcome the auth server")
+})
 
 app.listen(3000,()=>{
   console.log("server is running fine")
