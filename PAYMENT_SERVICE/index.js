@@ -4,6 +4,7 @@ import createOrder from "./payment/create-order.js";
 import paymentVerify from "./payment/payment_verify.js";
 import dotenv from "dotenv";
 
+const ip="54.89.167.115";
 dotenv.config();
 
 const app = express();
@@ -12,7 +13,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: `http://${ip}:5173`,
     credentials: true, 
   })
 );

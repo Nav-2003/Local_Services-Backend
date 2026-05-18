@@ -8,12 +8,12 @@ import { redisClient } from "./src/redis.js";
 import { getIO } from "./src/SocketInstance.js";
 import bookingReq from "./Booking_Jobs/booking_req_worker.js";
 import bookingRes from "./Booking_Jobs/booking_res_user.js"
-
+const ip="54.89.167.115";
 dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin:["http://localhost:5173", "http://localhost:3001"],
+  origin:[`http://${ip}:5173`, `http://${ip}:3001`],
   credentials: true
 }));
 app.use(express.json());

@@ -9,6 +9,8 @@ import bookingRej from "./Booking_Jobs/bookingRej.js"
 import cors from "cors";
 import mongoose from "mongoose";
 
+const ip="54.89.167.115";
+
 
 await mongoose.connect("mongodb+srv://yashi:naveen%402003@cluster0.vrbuumh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
     console.log("DB is connected successfully")
@@ -18,7 +20,7 @@ await mongoose.connect("mongodb+srv://yashi:naveen%402003@cluster0.vrbuumh.mongo
 const app=express();
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: `http://${ip}:5173`,
     credentials: true,
     methods: ["GET","POST","PUT","DELETE","OPTIONS"],
     allowedHeaders: ["Content-Type","Authorization"]
