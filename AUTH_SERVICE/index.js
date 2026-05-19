@@ -28,9 +28,9 @@ await mongoose.connect("mongodb+srv://yashi:naveen%402003@cluster0.vrbuumh.mongo
 
 const allowedOrigins = [
   `http://${ip}`,
-  `http://localhost:5173`
+  `http://localhost:5173`,
   `http://localhost:3001`,
-  `http://localhost:3002`
+  `http://localhost:3002`,
 ];
 
 app.use(cors({
