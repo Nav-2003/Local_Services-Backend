@@ -20,7 +20,10 @@ await mongoose.connect("mongodb+srv://yashi:naveen%402003@cluster0.vrbuumh.mongo
 const app=express();
 app.use(express.json());
 app.use(cors({
-    origin: [`http://localhost:5173`,`http://${ip}`,`https://${ip}`],
+    origin: [`http://localhost:5173`,`http://${ip}`,`https://${ip}`,
+        "https://localservices.publicvm.com",
+  "https://www.localservices.publicvm.com",
+    ],
     credentials: true,
     methods: ["GET","POST","PUT","DELETE","OPTIONS"],
     allowedHeaders: ["Content-Type","Authorization"]

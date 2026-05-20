@@ -13,7 +13,10 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: [`http://localhost:5173`, `http://${ip}`,`https://${ip}`],
+    origin: [`http://localhost:5173`, `http://${ip}`,`https://${ip}`,
+      "https://localservices.publicvm.com",
+  "https://www.localservices.publicvm.com",
+    ],
     credentials: true, 
   })
 );
